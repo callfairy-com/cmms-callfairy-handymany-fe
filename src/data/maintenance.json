@@ -1,0 +1,164 @@
+[
+  {
+    "id": "PM001",
+    "name": "HVAC Quarterly Service",
+    "description": "Comprehensive quarterly maintenance for all HVAC systems",
+    "assetId": "A001",
+    "frequency": "Quarterly",
+    "interval": 90,
+    "intervalUnit": "days",
+    "lastCompleted": "2024-09-15",
+    "nextDue": "2024-12-15",
+    "assignedTeam": "U003",
+    "estimatedDuration": 4,
+    "priority": "Medium",
+    "status": "Active",
+    "autoGenerate": true,
+    "checklistTemplate": "CL001",
+    "history": [
+      {
+        "date": "2024-09-15",
+        "jobId": "JOB001",
+        "status": "Completed",
+        "notes": "All checks passed"
+      },
+      {
+        "date": "2024-06-15",
+        "jobId": "JOB-PREV-001",
+        "status": "Completed",
+        "notes": "Minor adjustment needed"
+      }
+    ]
+  },
+  {
+    "id": "PM002",
+    "name": "Fire Alarm Monthly Test",
+    "description": "Monthly testing and inspection of fire alarm systems",
+    "assetId": "A002",
+    "frequency": "Monthly",
+    "interval": 30,
+    "intervalUnit": "days",
+    "lastCompleted": "2024-10-01",
+    "nextDue": "2024-11-01",
+    "assignedTeam": "U004",
+    "estimatedDuration": 2,
+    "priority": "High",
+    "status": "Overdue",
+    "autoGenerate": true,
+    "checklistTemplate": "CL002",
+    "history": [
+      {
+        "date": "2024-10-01",
+        "jobId": "JOB-PREV-002",
+        "status": "Completed",
+        "notes": "System operational"
+      },
+      {
+        "date": "2024-09-01",
+        "jobId": "JOB-PREV-003",
+        "status": "Completed",
+        "notes": "All zones tested successfully"
+      }
+    ]
+  },
+  {
+    "id": "PM003",
+    "name": "Elevator Monthly Service",
+    "description": "Monthly elevator inspection and maintenance",
+    "assetId": "A003",
+    "frequency": "Monthly",
+    "interval": 30,
+    "intervalUnit": "days",
+    "lastCompleted": "2024-10-20",
+    "nextDue": "2024-11-20",
+    "assignedTeam": "U003",
+    "estimatedDuration": 3,
+    "priority": "High",
+    "status": "Active",
+    "autoGenerate": true,
+    "checklistTemplate": "CL003",
+    "history": [
+      {
+        "date": "2024-10-20",
+        "jobId": "JOB-PREV-004",
+        "status": "Completed",
+        "notes": "Cables checked, lubrication completed"
+      }
+    ]
+  },
+  {
+    "id": "PM004",
+    "name": "Generator Quarterly Load Test",
+    "description": "Quarterly load testing and maintenance for backup generator",
+    "assetId": "A004",
+    "frequency": "Quarterly",
+    "interval": 90,
+    "intervalUnit": "days",
+    "lastCompleted": "2024-09-10",
+    "nextDue": "2024-12-10",
+    "assignedTeam": "U006",
+    "estimatedDuration": 3,
+    "priority": "Medium",
+    "status": "Active",
+    "autoGenerate": true,
+    "checklistTemplate": "CL004",
+    "history": [
+      {
+        "date": "2024-09-10",
+        "jobId": "JOB-PREV-005",
+        "status": "Completed",
+        "notes": "Load test successful at 100%"
+      }
+    ]
+  },
+  {
+    "id": "PM005",
+    "name": "Chiller Annual Overhaul",
+    "description": "Annual comprehensive overhaul of chiller system",
+    "assetId": "A005",
+    "frequency": "Annually",
+    "interval": 365,
+    "intervalUnit": "days",
+    "lastCompleted": "2023-11-25",
+    "nextDue": "2024-11-25",
+    "assignedTeam": "U003",
+    "estimatedDuration": 16,
+    "priority": "High",
+    "status": "Active",
+    "autoGenerate": true,
+    "checklistTemplate": "CL005",
+    "history": [
+      {
+        "date": "2023-11-25",
+        "jobId": "JOB-PREV-006",
+        "status": "Completed",
+        "notes": "Full system overhaul completed"
+      }
+    ]
+  },
+  {
+    "id": "PM006",
+    "name": "Security Camera Biannual Check",
+    "description": "Biannual security camera system check and cleaning",
+    "assetId": "A006",
+    "frequency": "Biannually",
+    "interval": 180,
+    "intervalUnit": "days",
+    "lastCompleted": "2024-04-05",
+    "nextDue": "2024-10-05",
+    "assignedTeam": "U004",
+    "estimatedDuration": 4,
+    "priority": "Low",
+    "status": "Overdue",
+    "autoGenerate": true,
+    "checklistTemplate": null,
+    "history": [
+      {
+        "date": "2024-04-05",
+        "jobId": "JOB-PREV-007",
+        "status": "Completed",
+        "notes": "All cameras cleaned and tested"
+      }
+    ]
+  }
+]

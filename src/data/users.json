@@ -1,0 +1,68 @@
+[
+  {
+    "id": "U001",
+    "name": "John Smith",
+    "email": "john.smith@company.com",
+    "role": "Admin",
+    "phone": "+44 7700 900123",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=John",
+    "department": "Operations",
+    "active": true,
+    "joinedDate": "2022-01-15"
+  },
+  {
+    "id": "U002",
+    "name": "Sarah Johnson",
+    "email": "sarah.johnson@company.com",
+    "role": "Manager",
+    "phone": "+44 7700 900124",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+    "department": "Maintenance",
+    "active": true,
+    "joinedDate": "2022-03-20"
+  },
+  {
+    "id": "U003",
+    "name": "Michael Brown",
+    "email": "michael.brown@company.com",
+    "role": "Contractor",
+    "phone": "+44 7700 900125",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Michael",
+    "department": "Field Operations",
+    "active": true,
+    "joinedDate": "2022-06-10"
+  },
+  {
+    "id": "U004",
+    "name": "Emma Wilson",
+    "email": "emma.wilson@company.com",
+    "role": "Contractor",
+    "phone": "+44 7700 900126",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Emma",
+    "department": "Field Operations",
+    "active": true,
+    "joinedDate": "2022-08-05"
+  },
+  {
+    "id": "U005",
+    "name": "David Martinez",
+    "email": "david.martinez@company.com",
+    "role": "Manager",
+    "phone": "+44 7700 900127",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
+    "department": "Asset Management",
+    "active": true,
+    "joinedDate": "2022-04-12"
+  },
+  {
+    "id": "U006",
+    "name": "Lisa Anderson",
+    "email": "lisa.anderson@company.com",
+    "role": "Contractor",
+    "phone": "+44 7700 900128",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Lisa",
+    "department": "Field Operations",
+    "active": true,
+    "joinedDate": "2023-01-18"
+  }
+]

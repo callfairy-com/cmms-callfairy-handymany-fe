@@ -1,0 +1,286 @@
+[
+  {
+    "id": "CL001",
+    "name": "HVAC Preventive Maintenance Checklist",
+    "description": "Standard checklist for HVAC system maintenance",
+    "category": "HVAC",
+    "items": [
+      {
+        "id": "CL001-1",
+        "task": "Inspect and clean air filters",
+        "required": true,
+        "completed": true,
+        "notes": "Filters replaced"
+      },
+      {
+        "id": "CL001-2",
+        "task": "Check refrigerant levels",
+        "required": true,
+        "completed": true,
+        "notes": "Levels normal"
+      },
+      {
+        "id": "CL001-3",
+        "task": "Inspect electrical connections",
+        "required": true,
+        "completed": true,
+        "notes": "All connections secure"
+      },
+      {
+        "id": "CL001-4",
+        "task": "Test thermostat calibration",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL001-5",
+        "task": "Clean condenser coils",
+        "required": false,
+        "completed": true,
+        "notes": "Cleaned thoroughly"
+      }
+    ],
+    "compliance": "CIBSE TM44",
+    "frequency": "Quarterly"
+  },
+  {
+    "id": "CL002",
+    "name": "Fire Alarm System Inspection",
+    "description": "Monthly fire safety inspection checklist",
+    "category": "Fire Safety",
+    "items": [
+      {
+        "id": "CL002-1",
+        "task": "Test all alarm call points",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL002-2",
+        "task": "Check control panel functionality",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL002-3",
+        "task": "Test sounders and visual alarms",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL002-4",
+        "task": "Verify emergency lighting operation",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL002-5",
+        "task": "Document test results",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      }
+    ],
+    "compliance": "BS 5839-1:2017",
+    "frequency": "Monthly"
+  },
+  {
+    "id": "CL003",
+    "name": "Elevator Safety Inspection",
+    "description": "Comprehensive elevator safety and maintenance checklist",
+    "category": "Elevator",
+    "items": [
+      {
+        "id": "CL003-1",
+        "task": "Inspect door operation and safety edges",
+        "required": true,
+        "completed": true,
+        "notes": "Door sensor replaced"
+      },
+      {
+        "id": "CL003-2",
+        "task": "Check cables and pulleys for wear",
+        "required": true,
+        "completed": true,
+        "notes": "No visible wear"
+      },
+      {
+        "id": "CL003-3",
+        "task": "Test emergency stop and alarm",
+        "required": true,
+        "completed": true,
+        "notes": "Functioning correctly"
+      },
+      {
+        "id": "CL003-4",
+        "task": "Verify overload sensor",
+        "required": true,
+        "completed": true,
+        "notes": "Tested and operational"
+      },
+      {
+        "id": "CL003-5",
+        "task": "Inspect guide rails and lubrication",
+        "required": true,
+        "completed": true,
+        "notes": "Lubrication applied"
+      }
+    ],
+    "compliance": "LOLER 1998",
+    "frequency": "Monthly"
+  },
+  {
+    "id": "CL004",
+    "name": "Generator Load Test Checklist",
+    "description": "Quarterly generator testing procedure",
+    "category": "Power Systems",
+    "items": [
+      {
+        "id": "CL004-1",
+        "task": "Check fuel levels and quality",
+        "required": true,
+        "completed": true,
+        "notes": "Fuel levels adequate"
+      },
+      {
+        "id": "CL004-2",
+        "task": "Inspect battery and connections",
+        "required": true,
+        "completed": true,
+        "notes": "Battery charged, connections clean"
+      },
+      {
+        "id": "CL004-3",
+        "task": "Test automatic transfer switch",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL004-4",
+        "task": "Perform load test at 50% capacity",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL004-5",
+        "task": "Perform load test at 100% capacity",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL004-6",
+        "task": "Record performance metrics",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      }
+    ],
+    "compliance": "BS 7698",
+    "frequency": "Quarterly"
+  },
+  {
+    "id": "CL005",
+    "name": "Chiller System Maintenance",
+    "description": "Comprehensive chiller maintenance checklist",
+    "category": "HVAC",
+    "items": [
+      {
+        "id": "CL005-1",
+        "task": "Inspect compressor operation",
+        "required": true,
+        "completed": true,
+        "notes": "Compressor faulty - replacement required"
+      },
+      {
+        "id": "CL005-2",
+        "task": "Check refrigerant charge",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL005-3",
+        "task": "Clean condenser tubes",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL005-4",
+        "task": "Test safety controls",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL005-5",
+        "task": "Verify water flow rates",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      }
+    ],
+    "compliance": "CIBSE Guide B",
+    "frequency": "Annually"
+  },
+  {
+    "id": "CL006",
+    "name": "Annual Elevator Certification Checklist",
+    "description": "Comprehensive annual elevator certification inspection",
+    "category": "Elevator",
+    "items": [
+      {
+        "id": "CL006-1",
+        "task": "Complete visual inspection of all components",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL006-2",
+        "task": "Test all safety devices",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL006-3",
+        "task": "Verify load capacity with weights",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL006-4",
+        "task": "Test emergency communications",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL006-5",
+        "task": "Review maintenance logs",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      },
+      {
+        "id": "CL006-6",
+        "task": "Issue compliance certificate",
+        "required": true,
+        "completed": false,
+        "notes": ""
+      }
+    ],
+    "compliance": "LOLER 1998",
+    "frequency": "Annually"
+  }
+]

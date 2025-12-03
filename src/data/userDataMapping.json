@@ -1,0 +1,77 @@
+{
+  "john.smith@company.com": {
+    "userId": "U001",
+    "role": "Admin",
+    "dataAccess": "all",
+    "assignedWorkOrders": [],
+    "assignedAssets": [],
+    "assignedDocuments": [],
+    "canApprove": true,
+    "canManageUsers": true,
+    "canUploadDocuments": true,
+    "canSubmitForApproval": true
+  },
+  "sarah.johnson@company.com": {
+    "userId": "U002",
+    "role": "Manager",
+    "dataAccess": "managed",
+    "assignedWorkOrders": ["WO001", "WO002", "WO003", "WO004", "WO005", "WO006", "WO007"],
+    "assignedAssets": ["A001", "A002", "A003", "A004", "A005"],
+    "assignedDocuments": ["DOC001", "DOC002", "DOC003", "DOC004", "DOC005", "DOC006", "DOC007", "DOC008"],
+    "managedUsers": ["U003", "U004", "U006"],
+    "canApprove": true,
+    "canManageUsers": false,
+    "canUploadDocuments": true
+  },
+  "michael.brown@company.com": {
+    "userId": "U003",
+    "role": "Contractor",
+    "dataAccess": "assigned",
+    "assignedWorkOrders": ["WO001", "WO003", "WO005"],
+    "assignedAssets": [],
+    "assignedDocuments": ["DOC001", "DOC003", "DOC005"],
+    "assignedVariations": ["VAR001", "VAR002"],
+    "canApprove": false,
+    "canManageUsers": false,
+    "canSubmitForApproval": true,
+    "canUploadDocuments": true
+  },
+  "emma.wilson@company.com": {
+    "userId": "U004",
+    "role": "Contractor",
+    "dataAccess": "assigned",
+    "assignedWorkOrders": ["WO002", "WO004", "WO006"],
+    "assignedAssets": [],
+    "assignedDocuments": ["DOC002", "DOC004", "DOC006"],
+    "assignedVariations": ["VAR003"],
+    "canApprove": false,
+    "canManageUsers": false,
+    "canSubmitForApproval": true,
+    "canUploadDocuments": true
+  },
+  "david.martinez@company.com": {
+    "userId": "U005",
+    "role": "Manager",
+    "dataAccess": "managed",
+    "assignedWorkOrders": ["WO008", "WO009", "WO010"],
+    "assignedAssets": ["A006", "A007", "A008"],
+    "assignedDocuments": ["DOC009", "DOC010", "DOC011"],
+    "managedUsers": ["U003", "U004"],
+    "canApprove": true,
+    "canManageUsers": false,
+    "canUploadDocuments": true
+  },
+  "lisa.anderson@company.com": {
+    "userId": "U006",
+    "role": "Contractor",
+    "dataAccess": "assigned",
+    "assignedWorkOrders": ["WO007", "WO009"],
+    "assignedAssets": [],
+    "assignedDocuments": ["DOC007", "DOC009"],
+    "assignedVariations": ["VAR004"],
+    "canApprove": false,
+    "canManageUsers": false,
+    "canSubmitForApproval": true,
+    "canUploadDocuments": true
+  }
+}

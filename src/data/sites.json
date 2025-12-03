@@ -1,0 +1,59 @@
+[
+  {
+    "id": "SITE001",
+    "name": "London Office",
+    "address": "123 Commercial Street, London, EC1M 5AB",
+    "type": "Office",
+    "size": 15000,
+    "sizeUnit": "sqft",
+    "buildings": ["Building A", "Building B"],
+    "assetCount": 4,
+    "activeJobs": 5,
+    "manager": "U002",
+    "status": "Active",
+    "operatingHours": "24/7",
+    "emergencyContact": "+44 7700 900123",
+    "coordinates": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    }
+  },
+  {
+    "id": "SITE002",
+    "name": "Manchester Warehouse",
+    "address": "456 Industrial Park, Manchester, M1 2AB",
+    "type": "Warehouse",
+    "size": 25000,
+    "sizeUnit": "sqft",
+    "buildings": ["Main Warehouse", "Storage Building B"],
+    "assetCount": 2,
+    "activeJobs": 1,
+    "manager": "U005",
+    "status": "Active",
+    "operatingHours": "Mon-Fri 8am-6pm",
+    "emergencyContact": "+44 7700 900127",
+    "coordinates": {
+      "lat": 53.4808,
+      "lng": -2.2426
+    }
+  },
+  {
+    "id": "SITE003",
+    "name": "Birmingham Service Center",
+    "address": "789 Service Road, Birmingham, B2 4QA",
+    "type": "Service Center",
+    "size": 8000,
+    "sizeUnit": "sqft",
+    "buildings": ["Main Building"],
+    "assetCount": 0,
+    "activeJobs": 0,
+    "manager": "U002",
+    "status": "Active",
+    "operatingHours": "Mon-Fri 9am-5pm",
+    "emergencyContact": "+44 7700 900124",
+    "coordinates": {
+      "lat": 52.4862,
+      "lng": -1.8904
+    }
+  }
+]

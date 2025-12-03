@@ -1,0 +1,172 @@
+[
+  {
+    "id": "QUO001",
+    "quoteNumber": "Q-2024-001",
+    "title": "Annual HVAC Maintenance Contract",
+    "clientName": "London Office",
+    "clientContact": "Facilities Manager",
+    "status": "Accepted",
+    "validUntil": "2024-12-31",
+    "createdDate": "2024-01-15",
+    "acceptedDate": "2024-01-20",
+    "items": [
+      {
+        "id": "QI001-1",
+        "description": "Quarterly HVAC inspection and maintenance",
+        "quantity": 4,
+        "unitPrice": 350,
+        "total": 1400
+      },
+      {
+        "id": "QI001-2",
+        "description": "Emergency callout coverage (24/7)",
+        "quantity": 1,
+        "unitPrice": 500,
+        "total": 500
+      },
+      {
+        "id": "QI001-3",
+        "description": "Filter replacements (annual)",
+        "quantity": 12,
+        "unitPrice": 45,
+        "total": 540
+      }
+    ],
+    "subtotal": 2440,
+    "tax": 488,
+    "total": 2928,
+    "terms": "Payment within 30 days. Emergency callouts not included in base price.",
+    "notes": "Covers all HVAC units in Building A and B"
+  },
+  {
+    "id": "QUO002",
+    "quoteNumber": "Q-2024-002",
+    "title": "Chiller System Upgrade",
+    "clientName": "Manchester Warehouse",
+    "clientContact": "Operations Director",
+    "status": "Pending",
+    "validUntil": "2024-12-15",
+    "createdDate": "2024-11-01",
+    "acceptedDate": null,
+    "items": [
+      {
+        "id": "QI002-1",
+        "description": "New high-efficiency chiller unit",
+        "quantity": 1,
+        "unitPrice": 42000,
+        "total": 42000
+      },
+      {
+        "id": "QI002-2",
+        "description": "Installation and commissioning",
+        "quantity": 1,
+        "unitPrice": 5000,
+        "total": 5000
+      },
+      {
+        "id": "QI002-3",
+        "description": "Old unit removal and disposal",
+        "quantity": 1,
+        "unitPrice": 1200,
+        "total": 1200
+      },
+      {
+        "id": "QI002-4",
+        "description": "5-year extended warranty",
+        "quantity": 1,
+        "unitPrice": 2500,
+        "total": 2500
+      }
+    ],
+    "subtotal": 50700,
+    "tax": 10140,
+    "total": 60840,
+    "terms": "50% deposit required, balance on completion. 12-month standard warranty included.",
+    "notes": "Estimated 15% reduction in energy costs. Installation requires 2-week shutdown."
+  },
+  {
+    "id": "QUO003",
+    "quoteNumber": "Q-2024-003",
+    "title": "Security System Enhancement",
+    "clientName": "London Office",
+    "clientContact": "Security Manager",
+    "status": "Draft",
+    "validUntil": "2024-12-20",
+    "createdDate": "2024-11-10",
+    "acceptedDate": null,
+    "items": [
+      {
+        "id": "QI003-1",
+        "description": "Additional security cameras (4K)",
+        "quantity": 12,
+        "unitPrice": 350,
+        "total": 4200
+      },
+      {
+        "id": "QI003-2",
+        "description": "Access control system upgrade",
+        "quantity": 1,
+        "unitPrice": 8500,
+        "total": 8500
+      },
+      {
+        "id": "QI003-3",
+        "description": "Installation and configuration",
+        "quantity": 1,
+        "unitPrice": 2200,
+        "total": 2200
+      },
+      {
+        "id": "QI003-4",
+        "description": "Staff training sessions",
+        "quantity": 3,
+        "unitPrice": 300,
+        "total": 900
+      }
+    ],
+    "subtotal": 15800,
+    "tax": 3160,
+    "total": 18960,
+    "terms": "Payment within 30 days of completion. Training included.",
+    "notes": "Cloud storage for 90 days included. Integration with existing system."
+  },
+  {
+    "id": "QUO004",
+    "quoteNumber": "Q-2024-004",
+    "title": "Emergency Generator Replacement",
+    "clientName": "London Office",
+    "clientContact": "Facilities Manager",
+    "status": "Rejected",
+    "validUntil": "2024-11-30",
+    "createdDate": "2024-10-15",
+    "acceptedDate": null,
+    "items": [
+      {
+        "id": "QI004-1",
+        "description": "500kW diesel generator",
+        "quantity": 1,
+        "unitPrice": 35000,
+        "total": 35000
+      },
+      {
+        "id": "QI004-2",
+        "description": "Installation and connection",
+        "quantity": 1,
+        "unitPrice": 6500,
+        "total": 6500
+      },
+      {
+        "id": "QI004-3",
+        "description": "Automatic transfer switch upgrade",
+        "quantity": 1,
+        "unitPrice": 3200,
+        "total": 3200
+      }
+    ],
+    "subtotal": 44700,
+    "tax": 8940,
+    "total": 53640,
+    "terms": "40% deposit, 60% on completion. 2-year warranty.",
+    "notes": "Client decided to extend life of existing generator instead."
+  }
+]
