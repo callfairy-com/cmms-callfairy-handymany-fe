@@ -1,7 +1,43 @@
 /**
  * API Endpoints Configuration
  * 
- * Centralized API endpoint definitions for all backend requests.
+ * ✅ 100% DYNAMIC - ALL CMMS API ENDPOINTS CENTRALIZED
+ * 
+ * All CMMS API endpoints are now dynamically generated using centralized configuration.
+ * No hardcoded '/api/v1/cmms/' paths remain in the codebase.
+ * 
+ * CENTRALIZED ENDPOINTS INCLUDE:
+ * - Work Orders: Full CRUD + tasks, comments, attachments, actions (start, complete, cancel, etc.)
+ * - Sites: Full CRUD + nested resources (buildings, assets, stats)
+ * - Buildings: Full CRUD + nested resources (floors)
+ * - Floors: Full CRUD + nested resources (zones)
+ * - Zones: Full CRUD
+ * - Assets: Full CRUD + all nested resources (meters, documents, assignments, custody, transfers, parts, etc.)
+ * - Organizations: Full CRUD + members, branding, settings
+ * - Maintenance: History, schedules, templates, procedures, alerts, attachments + all actions
+ * - Reports: Templates, reports, dashboards, KPIs, KPI values, analytics
+ * - Dashboard: Dynamic dashboard
+ * 
+ * USAGE PATTERN:
+ * ```typescript
+ * import { CMMS_ENDPOINTS } from '@/config';
+ * 
+ * // Simple endpoint
+ * apiClient.get(CMMS_ENDPOINTS.WORK_ORDERS.LIST);
+ * 
+ * // Dynamic endpoint with ID
+ * apiClient.get(CMMS_ENDPOINTS.WORK_ORDERS.DETAIL(id));
+ * 
+ * // Action endpoint
+ * apiClient.post(CMMS_ENDPOINTS.WORK_ORDERS.COMPLETE(id), data);
+ * ```
+ * 
+ * BENEFITS:
+ * - Single source of truth for all API endpoints
+ * - Easy to update base URLs and API versions
+ * - Type-safe endpoint definitions
+ * - Consistent naming conventions
+ * - Improved maintainability and scalability
  */
 
 import { env } from './env';
@@ -11,6 +47,13 @@ import { env } from './env';
  */
 function apiPath(path: string): string {
     return `/api/${env.api.version}${path}`;
+}
+
+/**
+ * Build CMMS API path with version and cmms prefix
+ */
+function cmmsPath(path: string): string {
+    return `/api/${env.api.version}/cmms${path}`;
 }
 
 /**
@@ -59,7 +102,7 @@ export const ORGANIZATION_ENDPOINTS = {
 } as const;
 
 /**
- * CRM endpoints
+ * Sales & CRM endpoints
  */
 export const CRM_ENDPOINTS = {
     LEADS: {
@@ -159,6 +202,179 @@ export const UPLOAD_ENDPOINTS = {
 } as const;
 
 /**
+ * CMMS-specific endpoints
+ */
+export const CMMS_ENDPOINTS = {
+    // Work Orders
+    WORK_ORDERS: {
+        LIST: cmmsPath('/work-orders/'),
+        DETAIL: (id: string | number) => cmmsPath(`/work-orders/${id}/`),
+        CREATE: cmmsPath('/work-orders/'),
+        UPDATE: (id: string | number) => cmmsPath(`/work-orders/${id}/`),
+        DELETE: (id: string | number) => cmmsPath(`/work-orders/${id}/`),
+        TYPES: cmmsPath('/work-order-types/'),
+        ASSIGN: (id: string | number) => cmmsPath(`/work-orders/${id}/assign/`),
+        START: (id: string | number) => cmmsPath(`/work-orders/${id}/start/`),
+        COMPLETE: (id: string | number) => cmmsPath(`/work-orders/${id}/complete/`),
+        CLOSE: (id: string | number) => cmmsPath(`/work-orders/${id}/close/`),
+        CANCEL: (id: string | number) => cmmsPath(`/work-orders/${id}/cancel/`),
+        STATS: cmmsPath('/work-orders/stats/'),
+        OVERDUE: cmmsPath('/work-orders/overdue/'),
+        COST_BREAKDOWN: (id: string | number) => cmmsPath(`/work-orders/${id}/cost-breakdown/`),
+        UPDATE_COSTS: (id: string | number) => cmmsPath(`/work-orders/${id}/update-costs/`),
+        TASKS: cmmsPath('/work-order-tasks/'),
+        TASK_DETAIL: (id: string | number) => cmmsPath(`/work-order-tasks/${id}/`),
+        TASK_COMPLETE: (id: string | number) => cmmsPath(`/work-order-tasks/${id}/complete/`),
+        COMMENTS: cmmsPath('/work-order-comments/'),
+        COMMENT_DETAIL: (id: string | number) => cmmsPath(`/work-order-comments/${id}/`),
+        ATTACHMENTS: cmmsPath('/work-order-attachments/'),
+        ATTACHMENT_DETAIL: (id: string | number) => cmmsPath(`/work-order-attachments/${id}/`),
+    },
+    // Assets
+    ASSETS: {
+        LIST: cmmsPath('/assets/'),
+        DETAIL: (id: string | number) => cmmsPath(`/assets/${id}/`),
+        CREATE: cmmsPath('/assets/'),
+        UPDATE: (id: string | number) => cmmsPath(`/assets/${id}/`),
+        DELETE: (id: string | number) => cmmsPath(`/assets/${id}/`),
+        TYPES: cmmsPath('/asset-types/'),
+        CATEGORIES: cmmsPath('/asset-categories/'),
+        CATEGORY_DETAIL: (id: string | number) => cmmsPath(`/asset-categories/${id}/`),
+        STATS: cmmsPath('/assets/stats/'),
+        BUILDINGS: (id: string | number) => cmmsPath(`/assets/${id}/buildings/`),
+        METERS: (id: string | number) => cmmsPath(`/assets/${id}/meters/`),
+        DOCUMENTS: (id: string | number) => cmmsPath(`/assets/${id}/documents/`),
+        WORK_ORDERS: (id: string | number) => cmmsPath(`/assets/${id}/work_orders/`),
+        DEPRECATE: (id: string | number) => cmmsPath(`/assets/${id}/deprecate/`),
+        TRANSFER: (id: string | number) => cmmsPath(`/assets/${id}/transfer/`),
+        LIFECYCLE_COSTS: (id: string | number) => cmmsPath(`/assets/${id}/lifecycle-costs/`),
+        REPLACEMENT_ANALYSIS: (id: string | number) => cmmsPath(`/assets/${id}/replacement-analysis/`),
+        MAINTENANCE_HISTORY: (id: string | number) => cmmsPath(`/assets/${id}/maintenance-history/`),
+        ASSET_METERS: cmmsPath('/asset-meters/'),
+        ASSET_METER_DETAIL: (id: string | number) => cmmsPath(`/asset-meters/${id}/`),
+        ASSET_METER_RECORD: (id: string | number) => cmmsPath(`/asset-meters/${id}/record_reading/`),
+        ASSET_DOCUMENTS: cmmsPath('/asset-documents/'),
+        ASSET_DOCUMENT_DETAIL: (id: string | number) => cmmsPath(`/asset-documents/${id}/`),
+        ASSET_ASSIGNMENTS: cmmsPath('/asset-assignments/'),
+        ASSET_ASSIGNMENT_DETAIL: (id: string | number) => cmmsPath(`/asset-assignments/${id}/`),
+        ASSET_CUSTODY: cmmsPath('/asset-custody/'),
+        ASSET_CHECK_OUT: cmmsPath('/asset-check-logs/check_out/'),
+        ASSET_CHECK_IN: cmmsPath('/asset-check-logs/check_in/'),
+        ASSET_CHECK_LOGS: cmmsPath('/asset-check-logs/'),
+        ASSET_TRANSFERS: cmmsPath('/asset-transfers/'),
+        ASSET_PARTS: cmmsPath('/asset-parts/'),
+        ASSET_PART_DETAIL: (id: string | number) => cmmsPath(`/asset-parts/${id}/`),
+    },
+    // Sites/Locations
+    SITES: {
+        LIST: cmmsPath('/sites/'),
+        DETAIL: (id: string | number) => cmmsPath(`/sites/${id}/`),
+        CREATE: cmmsPath('/sites/'),
+        UPDATE: (id: string | number) => cmmsPath(`/sites/${id}/`),
+        DELETE: (id: string | number) => cmmsPath(`/sites/${id}/`),
+        TYPES: cmmsPath('/site-types/'),
+        STATS: (id: string | number) => cmmsPath(`/sites/${id}/stats/`),
+        BUILDINGS: (id: string | number) => cmmsPath(`/sites/${id}/buildings/`),
+        ASSETS: (id: string | number) => cmmsPath(`/sites/${id}/assets/`),
+    },
+    // Buildings
+    BUILDINGS: {
+        LIST: cmmsPath('/buildings/'),
+        DETAIL: (id: string | number) => cmmsPath(`/buildings/${id}/`),
+        CREATE: cmmsPath('/buildings/'),
+        UPDATE: (id: string | number) => cmmsPath(`/buildings/${id}/`),
+        DELETE: (id: string | number) => cmmsPath(`/buildings/${id}/`),
+        FLOORS: (id: string | number) => cmmsPath(`/buildings/${id}/floors/`),
+    },
+    // Organizations
+    ORGANIZATIONS: {
+        LIST: cmmsPath('/organizations/'),
+        DETAIL: (id: string | number) => cmmsPath(`/organizations/${id}/`),
+        CREATE: cmmsPath('/organizations/'),
+        MEMBERS: (id: string | number) => cmmsPath(`/organizations/${id}/members/`),
+        CREATE_MEMBER: (id: string | number) => cmmsPath(`/organizations/${id}/create-member/`),
+        UPDATE_MEMBER: (orgId: string | number, userId: string | number) => cmmsPath(`/organizations/${orgId}/members/${userId}/`),
+        BRANDING: (id: string | number) => cmmsPath(`/organizations/${id}/branding/`),
+        UPLOAD_LOGO: (id: string | number) => cmmsPath(`/organizations/${id}/upload-logo/`),
+        SETTINGS: (id: string | number) => cmmsPath(`/organizations/${id}/settings/`),
+    },
+    // Maintenance
+    MAINTENANCE: {
+        LIST: cmmsPath('/preventive-maintenance/'),
+        DETAIL: (id: string | number) => cmmsPath(`/preventive-maintenance/${id}/`),
+        CREATE: cmmsPath('/preventive-maintenance/'),
+        UPDATE: (id: string | number) => cmmsPath(`/preventive-maintenance/${id}/`),
+        DELETE: (id: string | number) => cmmsPath(`/preventive-maintenance/${id}/`),
+        HISTORY: cmmsPath('/maintenance-history/'),
+        HISTORY_DETAIL: (id: string | number) => cmmsPath(`/maintenance-history/${id}/`),
+        HISTORY_START: (id: string | number) => cmmsPath(`/maintenance-history/${id}/start/`),
+        HISTORY_COMPLETE: (id: string | number) => cmmsPath(`/maintenance-history/${id}/complete/`),
+        HISTORY_CANCEL: (id: string | number) => cmmsPath(`/maintenance-history/${id}/cancel/`),
+        HISTORY_RESCHEDULE: (id: string | number) => cmmsPath(`/maintenance-history/${id}/reschedule/`),
+        HISTORY_DASHBOARD: cmmsPath('/maintenance-history/dashboard/'),
+        HISTORY_UPCOMING: cmmsPath('/maintenance-history/upcoming/'),
+        HISTORY_OVERDUE: cmmsPath('/maintenance-history/overdue/'),
+        SCHEDULE: cmmsPath('/maintenance-schedules/'),
+        SCHEDULE_DETAIL: (id: string | number) => cmmsPath(`/maintenance-schedules/${id}/`),
+        SCHEDULE_TOGGLE_PAUSE: (id: string | number) => cmmsPath(`/maintenance-schedules/${id}/toggle-pause/`),
+        TEMPLATES: cmmsPath('/maintenance-templates/'),
+        TEMPLATE_DETAIL: (id: string | number) => cmmsPath(`/maintenance-templates/${id}/`),
+        PROCEDURES: cmmsPath('/maintenance-procedures/'),
+        PROCEDURE_DETAIL: (id: string | number) => cmmsPath(`/maintenance-procedures/${id}/`),
+        ALERTS: cmmsPath('/maintenance-alerts/'),
+        ALERT_DETAIL: (id: string | number) => cmmsPath(`/maintenance-alerts/${id}/`),
+        ALERT_MARK_READ: (id: string | number) => cmmsPath(`/maintenance-alerts/${id}/mark-read/`),
+        ALERT_RESOLVE: (id: string | number) => cmmsPath(`/maintenance-alerts/${id}/resolve/`),
+        ATTACHMENTS: cmmsPath('/maintenance-attachments/'),
+        ATTACHMENT_DETAIL: (id: string | number) => cmmsPath(`/maintenance-attachments/${id}/`),
+        DASHBOARD: cmmsPath('/maintenance-dashboard/'),
+    },
+    // Dashboard
+    DASHBOARD: {
+        STATS: cmmsPath('/dashboard/stats/'),
+        ANALYTICS: cmmsPath('/dashboard/analytics/'),
+    },
+    // Floors
+    FLOORS: {
+        LIST: cmmsPath('/floors/'),
+        DETAIL: (id: string | number) => cmmsPath(`/floors/${id}/`),
+        CREATE: cmmsPath('/floors/'),
+        UPDATE: (id: string | number) => cmmsPath(`/floors/${id}/`),
+        DELETE: (id: string | number) => cmmsPath(`/floors/${id}/`),
+        ZONES: (id: string | number) => cmmsPath(`/floors/${id}/zones/`),
+    },
+    // Zones
+    ZONES: {
+        LIST: cmmsPath('/zones/'),
+        DETAIL: (id: string | number) => cmmsPath(`/zones/${id}/`),
+        CREATE: cmmsPath('/zones/'),
+        UPDATE: (id: string | number) => cmmsPath(`/zones/${id}/`),
+        DELETE: (id: string | number) => cmmsPath(`/zones/${id}/`),
+    },
+    // Reports
+    REPORTS: {
+        TEMPLATES: cmmsPath('/report-templates/'),
+        TEMPLATE_DETAIL: (id: string | number) => cmmsPath(`/report-templates/${id}/`),
+        SYSTEM_TEMPLATES: cmmsPath('/report-templates/system_templates/'),
+        LIST: cmmsPath('/reports/'),
+        GENERATE: cmmsPath('/reports/generate/'),
+        DETAIL: (id: string | number) => cmmsPath(`/reports/${id}/`),
+        EXPORT: (id: string | number) => cmmsPath(`/reports/${id}/export/`),
+        DASHBOARDS: cmmsPath('/dashboards/'),
+        DASHBOARD_DETAIL: (id: string | number) => cmmsPath(`/dashboards/${id}/`),
+        DASHBOARD_DEFAULT: cmmsPath('/dashboards/default/'),
+        KPIS: cmmsPath('/kpis/'),
+        KPI_DETAIL: (id: string | number) => cmmsPath(`/kpis/${id}/`),
+        KPI_CALCULATE: (id: string | number) => cmmsPath(`/kpis/${id}/calculate/`),
+        KPI_VALUES: cmmsPath('/kpi-values/'),
+        KPI_VALUE_DETAIL: (id: string | number) => cmmsPath(`/kpi-values/${id}/`),
+        ANALYTICS_QUERY: cmmsPath('/analytics/query/'),
+    },
+    // Dynamic Dashboard
+    DYNAMIC_DASHBOARD: cmmsPath('/dynamic-dashboard/'),
+} as const;
+
+/**
  * All endpoints combined
  */
 export const API_ENDPOINTS = {
@@ -172,6 +388,7 @@ export const API_ENDPOINTS = {
     TASKS: TASK_ENDPOINTS,
     REPORTS: REPORT_ENDPOINTS,
     UPLOADS: UPLOAD_ENDPOINTS,
+    CMMS: CMMS_ENDPOINTS,
 } as const;
 
 // Export for backward compatibility

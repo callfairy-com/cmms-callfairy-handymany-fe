@@ -7,7 +7,7 @@ export * from '@/features/crm/api'
 export * from '@/features/crm/types'
 export * from '@/features/projects/api'
 export * from '@/features/projects/types'
-export * from '@/features/maintenance/api'
+export * from '@/features/maintenance/services/maintenanceApi'
 export * from '@/features/maintenance/types'
 
 // Export the axios instance as 'api' for backward compatibility

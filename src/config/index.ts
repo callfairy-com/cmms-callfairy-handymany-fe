@@ -8,7 +8,7 @@
 
 import { env, validateEnv } from './env';
 import { ROUTES, PUBLIC_ROUTES, APP_ROUTES, CRM_ROUTES, MAINTENANCE_ROUTES, isPublicRoute, getDefaultRedirect, getLoginPath } from './routes';
-import { API_ENDPOINTS, AUTH_ENDPOINTS, USER_ENDPOINTS, CRM_ENDPOINTS, WORK_ORDER_ENDPOINTS } from './endpoints';
+import { API_ENDPOINTS, AUTH_ENDPOINTS, USER_ENDPOINTS, CRM_ENDPOINTS, WORK_ORDER_ENDPOINTS, CMMS_ENDPOINTS } from './endpoints';
 
 /**
  * Storage keys for localStorage/sessionStorage
@@ -176,6 +176,7 @@ export {
     USER_ENDPOINTS,
     CRM_ENDPOINTS,
     WORK_ORDER_ENDPOINTS,
+    CMMS_ENDPOINTS,
 };
 
 // Export default config object

@@ -26,5 +26,6 @@
     }
   },
   "include": ["src"],
+  "exclude": ["src/_legacy/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

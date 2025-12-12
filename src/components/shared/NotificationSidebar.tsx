@@ -1,7 +1,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, CheckCircle, XCircle, AlertCircle, Info, Clock, Check, Trash2 } from 'lucide-react'
-import { useNotifications } from '@/contexts/NotificationContext'
+import { useNotifications } from '@/app/providers/NotificationProvider'
 import { Button } from '@/components/ui/button'
 import { formatDistanceToNow } from 'date-fns'
 

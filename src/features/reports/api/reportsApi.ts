@@ -1,4 +1,5 @@
 import { apiClient } from '@/lib/api/client';
+import { CMMS_ENDPOINTS } from '@/config';
 import type {
     ReportTemplate,
     Report,
@@ -25,33 +26,33 @@ export const reportsApi = {
     // ==================== Report Templates ====================
     
     listReportTemplates: async (params?: Record<string, any>): Promise<PaginatedResponse<ReportTemplate>> => {
-        return apiClient.get('/api/v1/cmms/report-templates/', { params });
+        return apiClient.get(CMMS_ENDPOINTS.REPORTS.TEMPLATES, { params });
     },
 
     createReportTemplate: async (data: CreateReportTemplatePayload): Promise<ReportTemplate> => {
-        return apiClient.post('/api/v1/cmms/report-templates/', data);
+        return apiClient.post(CMMS_ENDPOINTS.REPORTS.TEMPLATES, data);
     },
 
     getReportTemplate: async (id: string): Promise<ReportTemplate> => {
-        return apiClient.get(`/api/v1/cmms/report-templates/${id}/`);
+        return apiClient.get(CMMS_ENDPOINTS.REPORTS.TEMPLATE_DETAIL(id));
     },
 
     updateReportTemplate: async (id: string, data: UpdateReportTemplatePayload): Promise<ReportTemplate> => {
-        return apiClient.patch(`/api/v1/cmms/report-templates/${id}/`, data);
+        return apiClient.patch(CMMS_ENDPOINTS.REPORTS.TEMPLATE_DETAIL(id), data);
     },
 
     deleteReportTemplate: async (id: string): Promise<void> => {
-        return apiClient.delete(`/api/v1/cmms/report-templates/${id}/`);
+        return apiClient.delete(CMMS_ENDPOINTS.REPORTS.TEMPLATE_DETAIL(id));
     },
 
     getSystemTemplates: async (): Promise<ReportTemplate[]> => {
-        return apiClient.get('/api/v1/cmms/report-templates/system_templates/');
+        return apiClient.get(CMMS_ENDPOINTS.REPORTS.SYSTEM_TEMPLATES);
     },
 
     // Find template by name (for upsert logic)
     findTemplateByName: async (orgId: string, name: string): Promise<ReportTemplate | null> => {
         try {
-            const response = await apiClient.get<PaginatedResponse<ReportTemplate>>('/api/v1/cmms/report-templates/', {
+            const response = await apiClient.get<PaginatedResponse<ReportTemplate>>(CMMS_ENDPOINTS.REPORTS.TEMPLATES, {
                 params: { organization: orgId, name, page_size: 1 }
             });
             return response.results && response.results.length > 0 ? response.results[0] : null;
@@ -74,23 +75,23 @@ export const reportsApi = {
     // ==================== Reports ====================
 
     listReports: async (params?: Record<string, any>): Promise<PaginatedResponse<Report>> => {
-        return apiClient.get('/api/v1/cmms/reports/', { params });
+        return apiClient.get(CMMS_ENDPOINTS.REPORTS.LIST, { params });
     },
 
     generateReport: async (data: GenerateReportPayload): Promise<Report> => {
-        return apiClient.post('/api/v1/cmms/reports/generate/', data);
+        return apiClient.post(CMMS_ENDPOINTS.REPORTS.GENERATE, data);
     },
 
     getReport: async (id: string): Promise<Report> => {
-        return apiClient.get(`/api/v1/cmms/reports/${id}/`);
+        return apiClient.get(CMMS_ENDPOINTS.REPORTS.DETAIL(id));
     },
 
     deleteReport: async (id: string): Promise<void> => {
-        return apiClient.delete(`/api/v1/cmms/reports/${id}/`);
+        return apiClient.delete(CMMS_ENDPOINTS.REPORTS.DETAIL(id));
     },
 
     exportReport: async (id: string, format: 'csv' | 'excel' | 'pdf' = 'csv'): Promise<Blob> => {
-        return apiClient.get(`/api/v1/cmms/reports/${id}/export/`, {
+        return apiClient.get(CMMS_ENDPOINTS.REPORTS.EXPORT(id), {
             params: { format },
             responseType: 'blob'
         });
@@ -99,33 +100,33 @@ export const reportsApi = {
     // ==================== Dashboards ====================
 
     listDashboards: async (params?: Record<string, any>): Promise<PaginatedResponse<Dashboard>> => {
-        return apiClient.get('/api/v1/cmms/dashboards/', { params });
+        return apiClient.get(CMMS_ENDPOINTS.REPORTS.DASHBOARDS, { params });
     },
 
     createDashboard: async (data: CreateDashboardPayload): Promise<Dashboard> => {
-        return apiClient.post('/api/v1/cmms/dashboards/', data);
+        return apiClient.post(CMMS_ENDPOINTS.REPORTS.DASHBOARDS, data);
     },
 
     getDashboard: async (id: string): Promise<Dashboard> => {
-        return apiClient.get(`/api/v1/cmms/dashboards/${id}/`);
+        return apiClient.get(CMMS_ENDPOINTS.REPORTS.DASHBOARD_DETAIL(id));
     },
 
     updateDashboard: async (id: string, data: UpdateDashboardPayload): Promise<Dashboard> => {
-        return apiClient.patch(`/api/v1/cmms/dashboards/${id}/`, data);
+        return apiClient.patch(CMMS_ENDPOINTS.REPORTS.DASHBOARD_DETAIL(id), data);
     },
 
     deleteDashboard: async (id: string): Promise<void> => {
-        return apiClient.delete(`/api/v1/cmms/dashboards/${id}/`);
+        return apiClient.delete(CMMS_ENDPOINTS.REPORTS.DASHBOARD_DETAIL(id));
     },
 
     getDefaultDashboard: async (): Promise<Dashboard> => {
-        return apiClient.get('/api/v1/cmms/dashboards/default/');
+        return apiClient.get(CMMS_ENDPOINTS.REPORTS.DASHBOARD_DEFAULT);
     },
 
     // Find dashboard by name (for upsert logic)
     findDashboardByName: async (orgId: string, name: string): Promise<Dashboard | null> => {
         try {
-            const response = await apiClient.get<PaginatedResponse<Dashboard>>('/api/v1/cmms/dashboards/', {
+            const response = await apiClient.get<PaginatedResponse<Dashboard>>(CMMS_ENDPOINTS.REPORTS.DASHBOARDS, {
                 params: { organization: orgId, name, page_size: 1 }
             });
             return response.results && response.results.length > 0 ? response.results[0] : null;
@@ -148,33 +149,33 @@ export const reportsApi = {
     // ==================== KPIs ====================
 
     listKPIs: async (params?: Record<string, any>): Promise<PaginatedResponse<KPI>> => {
-        return apiClient.get('/api/v1/cmms/kpis/', { params });
+        return apiClient.get(CMMS_ENDPOINTS.REPORTS.KPIS, { params });
     },
 
     createKPI: async (data: CreateKPIPayload): Promise<KPI> => {
-        return apiClient.post('/api/v1/cmms/kpis/', data);
+        return apiClient.post(CMMS_ENDPOINTS.REPORTS.KPIS, data);
     },
 
     getKPI: async (id: string): Promise<KPI> => {
-        return apiClient.get(`/api/v1/cmms/kpis/${id}/`);
+        return apiClient.get(CMMS_ENDPOINTS.REPORTS.KPI_DETAIL(id));
     },
 
     updateKPI: async (id: string, data: UpdateKPIPayload): Promise<KPI> => {
-        return apiClient.patch(`/api/v1/cmms/kpis/${id}/`, data);
+        return apiClient.patch(CMMS_ENDPOINTS.REPORTS.KPI_DETAIL(id), data);
     },
 
     deleteKPI: async (id: string): Promise<void> => {
-        return apiClient.delete(`/api/v1/cmms/kpis/${id}/`);
+        return apiClient.delete(CMMS_ENDPOINTS.REPORTS.KPI_DETAIL(id));
     },
 
     calculateKPI: async (id: string): Promise<{ message: string; kpi: KPI; value: KPIValue }> => {
-        return apiClient.post(`/api/v1/cmms/kpis/${id}/calculate/`, {});
+        return apiClient.post(CMMS_ENDPOINTS.REPORTS.KPI_CALCULATE(id), {});
     },
 
     // Find KPI by name (for upsert logic)
     findKPIByName: async (orgId: string, name: string): Promise<KPI | null> => {
         try {
-            const response = await apiClient.get<PaginatedResponse<KPI>>('/api/v1/cmms/kpis/', {
+            const response = await apiClient.get<PaginatedResponse<KPI>>(CMMS_ENDPOINTS.REPORTS.KPIS, {
                 params: { organization: orgId, name, page_size: 1 }
             });
             return response.results && response.results.length > 0 ? response.results[0] : null;
@@ -197,17 +198,17 @@ export const reportsApi = {
     // ==================== KPI Values ====================
 
     listKPIValues: async (params?: Record<string, any>): Promise<PaginatedResponse<KPIValue>> => {
-        return apiClient.get('/api/v1/cmms/kpi-values/', { params });
+        return apiClient.get(CMMS_ENDPOINTS.REPORTS.KPI_VALUES, { params });
     },
 
     getKPIValue: async (id: string): Promise<KPIValue> => {
-        return apiClient.get(`/api/v1/cmms/kpi-values/${id}/`);
+        return apiClient.get(CMMS_ENDPOINTS.REPORTS.KPI_VALUE_DETAIL(id));
     },
 
     // ==================== Analytics ====================
 
     queryAnalytics: async (data: AnalyticsQuery): Promise<AnalyticsResult> => {
-        return apiClient.post('/api/v1/cmms/analytics/query/', data);
+        return apiClient.post(CMMS_ENDPOINTS.REPORTS.ANALYTICS_QUERY, data);
     },
 
     // Predefined analytics queries

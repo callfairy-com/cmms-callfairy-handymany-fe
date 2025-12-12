@@ -3,7 +3,7 @@ import { maintenanceApi } from '../api'
 import type { MaintenanceJob } from '../types'
 import toast from 'react-hot-toast'
 
-export function useJobs() {
+export function useJobs(filters: any) {
     const [jobs, setJobs] = useState<MaintenanceJob[]>([])
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
@@ -11,8 +11,8 @@ export function useJobs() {
     const fetchJobs = async () => {
         setIsLoading(true)
         try {
-            const response = await maintenanceApi.getJobs()
-            setJobs(response.results)
+            const response = await maintenanceApi.listSchedules(filters)
+            setJobs(response.results as any)
             setError(null)
         } catch (err: any) {
             setError(err.message || 'Failed to fetch jobs')

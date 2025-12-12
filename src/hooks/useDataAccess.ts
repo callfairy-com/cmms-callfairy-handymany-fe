@@ -3,7 +3,7 @@
  * Uses RBAC from AuthContext instead of mock data
  * Deprecated in favor of direct hasPermission/hasRole usage
  */
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '@/app/providers/AuthProvider';
 
 export function useDataAccess() {
   const { user, hasPermission } = useAuth();

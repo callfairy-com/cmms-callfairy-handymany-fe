@@ -1,4 +1,5 @@
 import { apiClient } from '@/lib/api/client';
+import { CMMS_ENDPOINTS } from '@/config';
 import type {
     Organization,
     OrganizationMember,
@@ -12,11 +13,11 @@ import type {
 export const organizationApi = {
     // Organizations
     listOrganizations: async (params?: Record<string, any>): Promise<PaginatedResponse<Organization>> => {
-        return apiClient.get('/api/v1/cmms/organizations/', { params });
+        return apiClient.get(CMMS_ENDPOINTS.ORGANIZATIONS.LIST, { params });
     },
 
     getOrganization: async (id: string): Promise<Organization> => {
-        return apiClient.get(`/api/v1/cmms/organizations/${id}/`);
+        return apiClient.get(CMMS_ENDPOINTS.ORGANIZATIONS.DETAIL(id));
     },
 
     // Organization Members
@@ -29,7 +30,7 @@ export const organizationApi = {
         can_manage_members: boolean;
         results: OrganizationMember[];
     }> => {
-        return apiClient.get(`/api/v1/cmms/organizations/${orgId}/members/`, { params });
+        return apiClient.get(CMMS_ENDPOINTS.ORGANIZATIONS.MEMBERS(orgId), { params });
     },
 
     // Branding - Update logo by URL
@@ -39,7 +40,7 @@ export const organizationApi = {
         secondary_color?: string;
         company_tagline?: string;
     }): Promise<Organization> => {
-        return apiClient.patch(`/api/v1/cmms/organizations/${orgId}/branding/`, data);
+        return apiClient.patch(CMMS_ENDPOINTS.ORGANIZATIONS.BRANDING(orgId), data);
     },
 
     // Upload logo file
@@ -47,7 +48,7 @@ export const organizationApi = {
         const formData = new FormData();
         formData.append('logo', file);
         formData.append('logo_type', logoType);
-        return apiClient.post(`/api/v1/cmms/organizations/${orgId}/upload-logo/`, formData, {
+        return apiClient.post(CMMS_ENDPOINTS.ORGANIZATIONS.UPLOAD_LOGO(orgId), formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
@@ -66,37 +67,21 @@ export const organizationApi = {
             session_timeout_minutes?: number;
         };
     }): Promise<Organization> => {
-        return apiClient.patch(`/api/v1/cmms/organizations/${orgId}/settings/`, data);
+        return apiClient.patch(CMMS_ENDPOINTS.ORGANIZATIONS.SETTINGS(orgId), data);
     },
 
     // Create Organization (Super Admin only)
-    createOrganization: async (data: {
-        name: string;
-        slug: string;
-        email: string;
-        phone?: string;
-        address?: string;
-        plan?: string;
-    }): Promise<Organization> => {
-        return apiClient.post('/api/v1/cmms/organizations/', data);
+    createOrganization: async (data: any): Promise<Organization> => {
+        return apiClient.post(CMMS_ENDPOINTS.ORGANIZATIONS.CREATE, data);
     },
 
     // Add Member to Organization
-    addMember: async (orgId: string, data: {
-        user_id: string;
-        role: string;
-        employment_type?: string;
-        is_active?: boolean;
-    }): Promise<OrganizationMember> => {
-        return apiClient.post(`/api/v1/cmms/organizations/${orgId}/members/`, data);
+    createOrganizationMember: async (orgId: string, data: any): Promise<any> => {
+        return apiClient.post(CMMS_ENDPOINTS.ORGANIZATIONS.CREATE_MEMBER(orgId), data);
     },
 
     // Update Member Role
-    updateMember: async (orgId: string, userId: string, data: {
-        role?: string;
-        is_active?: boolean;
-        employment_type?: string;
-    }): Promise<OrganizationMember> => {
-        return apiClient.patch(`/api/v1/cmms/organizations/${orgId}/members/${userId}/`, data);
+    updateOrganizationMember: async (orgId: string, userId: string, data: any): Promise<any> => {
+        return apiClient.patch(CMMS_ENDPOINTS.ORGANIZATIONS.UPDATE_MEMBER(orgId, userId), data);
     },
 };

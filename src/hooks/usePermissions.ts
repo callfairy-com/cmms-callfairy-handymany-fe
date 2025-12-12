@@ -1,4 +1,4 @@
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '@/app/providers/AuthProvider';
 import type { Permission, Role } from '@/types/rbac';
 import { hasPermission, hasAnyPermission, hasAllPermissions, getRolePermissions } from '@/lib/permissions';
 

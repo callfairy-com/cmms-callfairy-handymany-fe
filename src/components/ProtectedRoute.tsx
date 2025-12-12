@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '@/app/providers/AuthProvider';
 import { AlertTriangle, Lock } from 'lucide-react';
 import type { Role, Permission } from '@/types/rbac';
 import { config } from '@/config';

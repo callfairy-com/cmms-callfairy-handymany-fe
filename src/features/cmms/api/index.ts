@@ -1,5 +1,6 @@
-import { apiClient } from '@/lib/api/client'
-import type { PaginatedResponse } from '@/types/api'
+import { apiClient } from '@/lib/api/client';
+import { CMMS_ENDPOINTS } from '@/config';
+import type { PaginatedResponse } from '@/types/api';
 import type {
     Client,
     ClientCategory,
@@ -9,11 +10,11 @@ import type {
     LeadStage,
     Deal,
     DynamicDashboardResponse
-} from '../types/index'
+} from '../types/index';
 
 export const dashboardApi = {
     getDynamicDashboard: () =>
-        apiClient.get<DynamicDashboardResponse>('/api/v1/cmms/dynamic-dashboard/'),
+        apiClient.get<DynamicDashboardResponse>(CMMS_ENDPOINTS.DYNAMIC_DASHBOARD),
 }
 
 export const crmApi = {

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { useNotifications } from '@/contexts/NotificationContext';
+import { useNotifications } from '@/app/providers/NotificationProvider';
 import { parseApiError } from '@/utils/apiHelpers';
 
 /**

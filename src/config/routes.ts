@@ -39,7 +39,7 @@ export const USER_ROUTES = {
 } as const;
 
 /**
- * CRM routes
+ * Sales & CRM routes
  */
 export const CRM_ROUTES = {
     LEADS: {

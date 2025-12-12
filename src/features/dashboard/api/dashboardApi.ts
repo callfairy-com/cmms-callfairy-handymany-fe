@@ -1,4 +1,5 @@
 import { apiClient } from '@/lib/api/client';
+import { CMMS_ENDPOINTS } from '@/config';
 import type { DynamicDashboardData } from '@/types/dashboard';
 
 /**
@@ -7,6 +8,6 @@ import type { DynamicDashboardData } from '@/types/dashboard';
  */
 export const dashboardApi = {
     getDynamicDashboard: async (): Promise<DynamicDashboardData> => {
-        return apiClient.get('/api/v1/cmms/dynamic-dashboard/');
+        return apiClient.get(CMMS_ENDPOINTS.DYNAMIC_DASHBOARD);
     },
 };

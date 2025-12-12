@@ -4,9 +4,9 @@
  * All API clients exported from a single entry point
  */
 
-export { workOrderApi } from '@/features/workOrders/api/workOrderApi';
-export { locationApi } from '@/features/locations/api/locationApi';
-export { assetApi } from '@/features/assets/api/assetApi';
+export { workOrderApi } from '@/features/work-orders/services/workOrderApi';
+export { locationApi } from '@/features/sites/services/locationApi';
+export { assetApi } from '@/features/assets/services/assetApi';
 export { organizationApi } from '@/features/organization/api/organizationApi';
 export { dashboardApi } from '@/features/dashboard/api/dashboardApi';
 

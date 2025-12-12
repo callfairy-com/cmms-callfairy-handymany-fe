@@ -18,7 +18,7 @@ function getOptionalEnvVar(key: string, defaultValue: string): string {
 
 function getApiBaseUrl(): string {
     const raw = import.meta.env.VITE_API_BASE_URL;
-    const fallback = 'http://localhost:8000';
+    const fallback = 'https://cmms-callfairy-handyman-production.up.railway.app';
 
     if (!raw || raw.trim() === '' || raw.trim() === '/') {
         return fallback;
@@ -79,7 +79,7 @@ export const env = {
 
     // App Configuration
     app: {
-        name: getOptionalEnvVar('VITE_APP_NAME', 'CRM-Fairy'),
+        name: getOptionalEnvVar('VITE_APP_NAME', 'CallFairy CMMS'),
         version: getOptionalEnvVar('VITE_APP_VERSION', '1.0.0'),
         environment: getOptionalEnvVar('VITE_APP_ENVIRONMENT', 'development'),
     },
